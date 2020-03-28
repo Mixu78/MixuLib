@@ -29,4 +29,18 @@ public class Colors {
 
         return new ColourRGBA(r, g, b, a).argb();
     }
+
+    public static int[] getARGB(int ARGB) {
+        int a = (ARGB>>24) & 0xff;
+        int r = (ARGB>>16) & 0xff;
+        int g = (ARGB>>8) & 0xff;
+        int b = ARGB & 0xff;
+
+        return new int[]{a, r, g, b};
+    }
+
+    public static int toARGB(int a, int r, int g, int b) {
+        int ARGBHex = (a<<24) | (r<<16) | (g<<8) | b;
+        return ARGBHex;
+    }
 }

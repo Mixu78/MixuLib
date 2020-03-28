@@ -24,6 +24,7 @@ public class ModelRenderer {
 
             Vec3i quadVec = quad.getFace().getDirectionVec();
             buffer.putNormal(quadVec.getX(), quadVec.getY(), quadVec.getZ());
+            tessellator.draw();
         }
     }
 
@@ -39,6 +40,7 @@ public class ModelRenderer {
 
             Vec3i quadVec = quad.getFace().getDirectionVec();
             buffer.putNormal(quadVec.getX(), quadVec.getY(), quadVec.getZ());
+            tessellator.draw();
         }
     }
 
@@ -48,12 +50,13 @@ public class ModelRenderer {
 
         for (BakedQuad quad : quads) {
             buffer.begin(7, DefaultVertexFormats.ITEM);
-
             buffer.addVertexData(quad.getVertexData());
+
             buffer.putColor4(argb);
 
             Vec3i quadVec = quad.getFace().getDirectionVec();
-            buffer.putNormal(quadVec.getX(), quadVec.getY(), quadVec.getZ());
+            buffer.putNormal((float) quadVec.getX(), (float) quadVec.getY(), (float) quadVec.getZ());
+            tessellator.draw();
         }
     }
 }
